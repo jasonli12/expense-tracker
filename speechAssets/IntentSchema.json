@@ -1,0 +1,762 @@
+{
+  "intents": [
+    {
+      "name": "AddNewExpenseIntent",
+      "samples": [
+        "add a new expense",
+        "add new expense",
+        "add expense",
+        "new expense",
+        "add a purchase",
+        "add a new purchase",
+        "new purchase",
+        "add",
+        "add new",
+        "add a new spend",
+        "add spend",
+        "new spend",
+        "add new spend",
+        "add new amount",
+        "new amount",
+        "add amount",
+        "out of pocket",
+        "add spending",
+        "new investment",
+        "add an investment",
+        "add a new investment",
+        "add investment",
+        "Add a {ExpenseCategory} expense for {ExpenseDescription} on {ExpenseDate} for {Dollars} dollars and {Cents} cents",
+        "Add a {ExpenseCategory} expense",
+        "I want to add an expense for {ExpenseDescription} on {ExpenseDate} for {Dollars} dollars and {Cents} cents",
+        "On {ExpenseDate} I bought a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+        "On {ExpenseDate} I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
+        "I bought {ExpenseDescription}",
+        "I paid for {ExpenseDescription}",
+        "{ExpenseDate} I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
+        "I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
+        "I bought a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+        "I bought a {ExpenseDescription} on {ExpenseDate}",
+        "I paid {ExpenseDescription} on {ExpenseDate}",
+        "On {ExpenseDate} I spent {Dollars} dollars and {Cents} cents",
+        "I spent {Dollars} dollars and {Cents} cents on {ExpenseDate}",
+        "New {ExpenseCategory} expense",
+        "On {ExpenseDate} I purchased a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+        "I purchased a {ExpenseDescription}",
+        "I purchased a {ExpenseDescription} on {ExpenseDate}",
+        "I purchased a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+        "New {ExpenseCategory} purchase",
+        "Add a {ExpenseCategory} purchase",
+        "I purchased {ExpenseDescription}",
+        "{ExpenseCategory} purchase",
+        "Purchase",
+        "Buy a {ExpenseDescription}",
+        "Bought a {ExpenseDescription}",
+        "Bought a {ExpenseDescription} on {ExpenseDate}",
+        "Bought a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+        "Buy a {ExpenseDescription} on {ExpenseDate}",
+        "Buy a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+        "Purchase a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+        "Purchase a {ExpenseDescription}",
+        "Purchase a {ExpenseDescription} on {ExpenseDate}"
+      ],
+      "slots": [
+        {
+          "name": "ExpenseCategory",
+          "type": "LIST_OF_EXPENSE_TYPES",
+          "samples": [
+            "{ExpenseCategory}",
+            "{ExpenseCategory} expense"
+          ]
+        },
+        {
+          "name": "ExpenseDate",
+          "type": "AMAZON.DATE",
+          "samples": [
+            "The expense date is {ExpenseDate}",
+            "{ExpenseDate}",
+            "I am buying it on {ExpenseDate}",
+            "I'm making the purchase on {ExpenseDate}",
+            "I bought a {ExpenseDescription} on {ExpenseDate}"
+          ]
+        },
+        {
+          "name": "ExpenseDescription",
+          "type": "LIST_OF_EXPENSE_DESCRIPTIONS",
+          "samples": [
+            "{ExpenseDescription}",
+            "I bought {ExpenseDescription}",
+            "I paid for {ExpenseDescription}",
+            "I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
+            "I bought a {ExpenseDescription} for {Dollars} dollars and {Cents} cents"
+          ]
+        },
+        {
+          "name": "Dollars",
+          "type": "AMAZON.NUMBER",
+          "samples": [
+            "{Dollars} dollars and {Cents} cents",
+            "{Dollars} dollars"
+          ]
+        },
+        {
+          "name": "Cents",
+          "type": "AMAZON.NUMBER",
+          "samples": [
+            "{Dollars} dollars and {Cents} cents",
+            "{Cents} cents",
+            "{Cents}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    }
+  ],
+  "types": [
+    {
+      "name": "LIST_OF_EXPENSE_DESCRIPTIONS",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "Food at McDonald's",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Drinks at the bar",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "French Fries",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Electricity",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Water Bill for June to July",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Garbage for October to December",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Sandwich",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Burger",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Amazon Prime subscription",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "AIG Life Insurance",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Student Loan",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Haircut",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "PG&E Bill",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Acupuncture",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "AT&T Phone Bill",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "iPhone",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Computer",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Macbook Pro",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "T-Shirt",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Jeans",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "August Rent",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Rent",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Tennis Shoes",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Shoes",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Bags",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Plane Ticket from Hawaii to Seattle, Washington",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Train Ticket from New York to Boston",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Philly Cheesesteak at Theo's Cheesesteaks",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Drinks",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Birthday Gift",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Gas for the car",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Sushi at Ozumo",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Sashimi",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Bento Box",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Lunch",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Comcast Internet",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Games",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Video Games",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "LIST_OF_EXPENSE_TYPES",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "Utilities",
+            "synonyms": [
+              "Electricity",
+              "Water",
+              "Trash",
+              "Garbage",
+              "Waste"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Insurance",
+            "synonyms": [
+              "Health Insurance",
+              "Homeowner's Insurance",
+              "Auto Insurance",
+              "Car Insurance",
+              "Life Insurance",
+              "Disability Insurance",
+              "Renter's Insurance",
+              "Pet Insurance"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Fees",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Wages",
+            "synonyms": [
+              "Salaries",
+              "Payroll",
+              "Salary"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Taxes",
+            "synonyms": [
+              "Federal Tax",
+              "State Tax",
+              "Local Tax",
+              "Sales Tax",
+              "Property Tax"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Personal Travel",
+            "synonyms": [
+              "Vacation"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Business Travel",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Meals",
+            "synonyms": [
+              "Food",
+              "Drinks",
+              "Drink",
+              "Groceries",
+              "Grocery",
+              "Fast Food",
+              "Restaurant",
+              "Coffee"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Education",
+            "synonyms": [
+              "School",
+              "Tuition",
+              "Learning",
+              "Learn"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Clothing",
+            "synonyms": [
+              "Clothes",
+              "Shoes",
+              "Socks",
+              "Jeans",
+              "Shirts",
+              "Pants"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Medical",
+            "synonyms": [
+              "Doctor",
+              "Dentist",
+              "Dental",
+              "Pharmacy"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Loan",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Subscriptions",
+            "synonyms": [
+              "Phone",
+              "Internet",
+              "Cable",
+              "Cable TV",
+              "Mobile",
+              "Mobile Phone",
+              "Home Phone",
+              "TV"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Entertainment",
+            "synonyms": [
+              "Fun",
+              "Movies"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Supplies",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Housing",
+            "synonyms": [
+              "Mortgage",
+              "Rent",
+              "HOA"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Transportation",
+            "synonyms": [
+              "Parking",
+              "Commute",
+              "Train",
+              "Bus",
+              "Fuel",
+              "Gas"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Gifts",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Other",
+            "synonyms": []
+          }
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-ExpenseCategory",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What category is this"
+        },
+        {
+          "type": "PlainText",
+          "value": "What kind of expense is this"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-ExpenseDate",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the date of the expense"
+        },
+        {
+          "type": "PlainText",
+          "value": "What is the expense date"
+        },
+        {
+          "type": "PlainText",
+          "value": "What is the date"
+        },
+        {
+          "type": "PlainText",
+          "value": "When is the expense"
+        },
+        {
+          "type": "PlainText",
+          "value": "When are you buying it"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-ExpenseDescription",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What did you buy"
+        },
+        {
+          "type": "PlainText",
+          "value": "What did you purchase"
+        },
+        {
+          "type": "PlainText",
+          "value": "What did you spend on"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-Dollars",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "How much is it"
+        },
+        {
+          "type": "PlainText",
+          "value": "How much are you paying"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-Cents",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "How many cents"
+        },
+        {
+          "type": "PlainText",
+          "value": " And how many cents"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "AddNewExpenseIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "ExpenseCategory",
+            "type": "LIST_OF_EXPENSE_TYPES",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-ExpenseCategory"
+            }
+          },
+          {
+            "name": "ExpenseDate",
+            "type": "AMAZON.DATE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-ExpenseDate"
+            }
+          },
+          {
+            "name": "ExpenseDescription",
+            "type": "LIST_OF_EXPENSE_DESCRIPTIONS",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-ExpenseDescription"
+            }
+          },
+          {
+            "name": "Dollars",
+            "type": "AMAZON.NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-Dollars"
+            }
+          },
+          {
+            "name": "Cents",
+            "type": "AMAZON.NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-Cents"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
