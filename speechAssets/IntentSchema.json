@@ -269,6 +269,230 @@
               "value": "Video Games",
               "synonyms": []
             }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Taxes",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Fees",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Insurance",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Waste",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Garbage",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Trash",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Water",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Gift",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Gas",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Fuel",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Bus",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Train",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Commute",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Parking",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "HOA",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Mortgage",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Movies",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "TV",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Phone",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Mobile",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Medical",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Pharmacy",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Dental",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Doctor",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Clothing",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Pants",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Shirts",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Socks",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Tuition",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Coffee",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Groceries",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Travel",
+              "synonyms": []
+            }
           }
         ]
       },
@@ -491,71 +715,77 @@
       {
         "name": "AddNewExpenseIntent",
         "samples": [
+          "add an expense",
           "add a new expense",
-          "add new expense",
-          "add expense",
+          "I want to add a new expense",
+          "I want to add an expense",
           "new expense",
           "add a purchase",
           "add a new purchase",
           "new purchase",
-          "add",
-          "add new",
-          "add a new spend",
-          "add spend",
-          "new spend",
-          "add new spend",
-          "add new amount",
-          "new amount",
-          "add amount",
-          "out of pocket",
-          "add spending",
-          "new investment",
-          "add an investment",
-          "add a new investment",
-          "add investment",
-          "Add a {ExpenseCategory} expense for {ExpenseDescription} on {ExpenseDate} for {Dollars} dollars and {Cents} cents",
-          "Add a {ExpenseCategory} expense",
-          "I want to add an expense for {ExpenseDescription} on {ExpenseDate} for {Dollars} dollars and {Cents} cents",
-          "On {ExpenseDate} I bought a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
-          "On {ExpenseDate} I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
-          "I bought {ExpenseDescription}",
-          "I paid for {ExpenseDescription}",
-          "{ExpenseDate} I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
-          "I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
-          "I bought a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
-          "I bought a {ExpenseDescription} on {ExpenseDate}",
-          "I paid {ExpenseDescription} on {ExpenseDate}",
-          "On {ExpenseDate} I spent {Dollars} dollars and {Cents} cents",
-          "I spent {Dollars} dollars and {Cents} cents on {ExpenseDate}",
-          "New {ExpenseCategory} expense",
-          "On {ExpenseDate} I purchased a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
-          "I purchased a {ExpenseDescription}",
+          "I want to add a new purchase",
+          "add expense",
+          "I want to add a purchase",
+          "I would like to add a purchase",
+          "I would like to add a new purchase",
+          "I would like to add an expense",
+          "I would like to add a new expense",
+          "I bought something",
+          "I purchased something",
+          "I made a purchase",
+          "I paid for something",
+          "{ExpenseDate} I made a purchase",
+          "{ExpenseDate} I bought something",
+          "{ExpenseDate} I paid for something",
+          "{ExpenseDate} I purchased something",
+          "On {ExpenseDate} I made a purchase",
+          "On {ExpenseDate} I bought something",
+          "On {ExpenseDate} I paid for something",
+          "On {ExpenseDate} I purchased something",
+          "{ExpenseDate} I purchased {ExpenseDescription}",
+          "{ExpenseDate} I purchased a {ExpenseDescription}",
+          "{ExpenseDate} I bought {ExpenseDescription}",
+          "{ExpenseDate} I bought a {ExpenseDescription}",
+          "{ExpenseDate} I paid for {ExpenseDescription}",
+          "{ExpenseDate} I paid for a {ExpenseDescription}",
+          "On {ExpenseDate} I purchased {ExpenseDescription}",
+          "On {ExpenseDate} I purchased a {ExpenseDescription}",
+          "On {ExpenseDate} I bought {ExpenseDescription}",
+          "On {ExpenseDate} I bought a {ExpenseDescription}",
+          "On {ExpenseDate} I paid for a {ExpenseDescription}",
+          "On {ExpenseDate} I paid for {ExpenseDescription}",
+          "I made a purchase {ExpenseDate}",
+          "I made a purchase on {ExpenseDate}",
+          "I bought something {ExpenseDate}",
+          "I bought something on {ExpenseDate}",
+          "I paid for something {ExpenseDate}",
+          "I paid for something on {ExpenseDate}",
+          "I purchased something {ExpenseDate}",
+          "I purchased something on {ExpenseDate}",
+          "I purchased {ExpenseDescription} on {ExpenseDate}",
           "I purchased a {ExpenseDescription} on {ExpenseDate}",
-          "I purchased a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
-          "New {ExpenseCategory} purchase",
-          "Add a {ExpenseCategory} purchase",
-          "I purchased {ExpenseDescription}",
-          "{ExpenseCategory} purchase",
-          "Purchase",
-          "Buy a {ExpenseDescription}",
-          "Bought a {ExpenseDescription}",
-          "Bought a {ExpenseDescription} on {ExpenseDate}",
-          "Bought a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
-          "Buy a {ExpenseDescription} on {ExpenseDate}",
-          "Buy a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
-          "Purchase a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
-          "Purchase a {ExpenseDescription}",
-          "Purchase a {ExpenseDescription} on {ExpenseDate}"
+          "I bought {ExpenseDescription} on {ExpenseDate}",
+          "I bought a {ExpenseDescription} on {ExpenseDate}",
+          "I paid for {ExpenseDescription} on {ExpenseDate}",
+          "I paid for a {ExpenseDescription} on {ExpenseDate}",
+          "{ExpenseDate} I bought something for {Dollars} dollars and {Cents} cents",
+          "On {ExpenseDate} I bought something for {Dollars} dollars and {Cents} cents",
+          "{ExpenseDate} I paid {Dollars} dollars and {Cents} cents for something",
+          "On {ExpenseDate} I paid {Dollars} dollars and {Cents} cents for something",
+          "{ExpenseDate} I bought something for {Dollars} dollars {Cents} cents",
+          "On {ExpenseDate} I bought something for {Dollars} dollars {Cents} cents",
+          "{ExpenseDate} I paid {Dollars} dollars {Cents} cents for something",
+          "On {ExpenseDate} I paid {Dollars} dollars {Cents} cents for something",
+          "I spent {Dollars} dollars and {Cents} cents",
+          "I paid {Dollars} dollars and {Cents} cents",
+          "{ExpenseDate} I bought {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+          "On {ExpenseDate} I bought {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+          "{ExpenseDate} I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
+          "On {ExpenseDate} I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
+          "{ExpenseDate} I spent {Dollars} dollars and {Cents} cents on {ExpenseDescription}",
+          "On {ExpenseDate} I spent {Dollars} dollars and {Cents} cents on {ExpenseDescription}"
         ],
         "slots": [
-          {
-            "name": "ExpenseCategory",
-            "type": "LIST_OF_EXPENSE_TYPES",
-            "samples": [
-              "{ExpenseCategory}",
-              "{ExpenseCategory} expense"
-            ]
-          },
           {
             "name": "ExpenseDate",
             "type": "AMAZON.DATE",
@@ -564,7 +794,10 @@
               "{ExpenseDate}",
               "I am buying it on {ExpenseDate}",
               "I'm making the purchase on {ExpenseDate}",
-              "I bought a {ExpenseDescription} on {ExpenseDate}"
+              "I bought a {ExpenseDescription} on {ExpenseDate}",
+              "I bought {ExpenseDescription} on {ExpenseDate}",
+              "I am buying it {ExpenseDate}",
+              "I bought it {ExpenseDate}"
             ]
           },
           {
@@ -583,7 +816,14 @@
             "type": "AMAZON.NUMBER",
             "samples": [
               "{Dollars} dollars and {Cents} cents",
-              "{Dollars} dollars"
+              "{Dollars} dollars",
+              "I paid {Dollars} dollars",
+              "I paid {Dollars} dollars for it",
+              "I paid {Dollars} dollars for them",
+              "I paid {Dollars} dollars and {Cents} cents ",
+              "I paid {Dollars} dollars and {Cents} cents for it",
+              "I paid {Dollars} dollars and {Cents} cents for them",
+              "{Dollars}"
             ]
           },
           {
@@ -614,15 +854,11 @@
   },
   "prompts": [
     {
-      "id": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-ExpenseCategory",
+      "id": "Confirm.Intent-AddNewExpenseIntent",
       "variations": [
         {
           "type": "PlainText",
-          "value": "What category is this"
-        },
-        {
-          "type": "PlainText",
-          "value": "What kind of expense is this"
+          "value": "I'm adding an expense for {ExpenseDescription} for {Dollars} dollars and {Cents} cents for {ExpenseDate}. Is that correct?"
         }
       ]
     },
@@ -632,14 +868,6 @@
         {
           "type": "PlainText",
           "value": "What is the date of the expense"
-        },
-        {
-          "type": "PlainText",
-          "value": "What is the expense date"
-        },
-        {
-          "type": "PlainText",
-          "value": "What is the date"
         },
         {
           "type": "PlainText",
@@ -678,6 +906,14 @@
         {
           "type": "PlainText",
           "value": "How much are you paying"
+        },
+        {
+          "type": "PlainText",
+          "value": "How much did you pay"
+        },
+        {
+          "type": "PlainText",
+          "value": "How many dollars did you pay"
         }
       ]
     },
@@ -699,18 +935,11 @@
     "intents": [
       {
         "name": "AddNewExpenseIntent",
-        "confirmationRequired": false,
-        "prompts": {},
+        "confirmationRequired": true,
+        "prompts": {
+          "confirmation": "Confirm.Intent-AddNewExpenseIntent"
+        },
         "slots": [
-          {
-            "name": "ExpenseCategory",
-            "type": "LIST_OF_EXPENSE_TYPES",
-            "elicitationRequired": true,
-            "confirmationRequired": false,
-            "prompts": {
-              "elicitation": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-ExpenseCategory"
-            }
-          },
           {
             "name": "ExpenseDate",
             "type": "AMAZON.DATE",
