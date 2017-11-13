@@ -21,6 +21,37 @@ var handlers = {
     this.response.speak(speechOutput);
     this.emit(':responseReady');
   },
+  'ReadExpensesByDateIntent': function() {
+    var queryDate = this.event.request.intent.slots.ExpenseDate.value;
+    var params = {
+      TableName: dynamoDBTableName,
+      KeyConditionExpression: "userId = :u",
+      ExpressionAttributeValues: {
+          ":u": this.event.session.user.userId
+      }
+    };
+
+    readExpenseByDate(params, myResult => {
+      speechOutput = 'On ' + queryDate + ', you bought ';
+      var listOfExpenses = [];
+      myResult.forEach(function(item) {
+        if (item.expenseDate === queryDate) {
+          listOfExpenses.push(item.expenseDescription);
+        }
+      });
+      if (listOfExpenses.length === 0) {
+        speechOutput = "You didn't buy anything on " + queryDate;
+      } else if (listOfExpenses.length === 1) {
+        speechOutput += listOfExpenses[0];
+      } else {
+        listOfExpenses[listOfExpenses.length - 1] = 'and ' + listOfExpenses[listOfExpenses.length - 1];
+        speechOutput += listOfExpenses.join(', ');
+      }
+      this.response.speak(speechOutput);
+      this.emit(':responseReady');
+    });
+
+  },
   'AMAZON.HelpIntent': function () {
       speechOutput = "";
       reprompt = "";
@@ -92,4 +123,19 @@ function delegateSlotCollection() {
     }
     return this.event.request.intent;
   }
+}
+
+function readExpenseByDate(params, callback) {
+
+  var docClient = new AWS.DynamoDB.DocumentClient();
+  console.log("Querying for expenses");
+
+  docClient.query(params, function(err, data) {
+    if (err) {
+      console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
+    } else {
+      console.log("Query succeeded. Data: ", data);
+      callback(data.Items);
+    }
+  });
 }
