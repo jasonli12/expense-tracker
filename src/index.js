@@ -1,6 +1,9 @@
 "use strict";
 
+var AWS = require("aws-sdk");
 var Alexa = require('alexa-sdk');
+
+var dynamoDBTableName = 'expenses';
 
 var speechOutput;
 var reprompt;
@@ -15,7 +18,6 @@ var handlers = {
   'AddNewExpenseIntent': function() {
     var filledSlots = delegateSlotCollection.call(this);
 
-    speechOutput = "Great! I've added the expense";
     this.response.speak(speechOutput);
     this.emit(':responseReady');
   },
@@ -39,11 +41,10 @@ var handlers = {
 
 exports.handler = function(event, context, callback){
   var alexa = Alexa.handler(event, context, callback);
-  var APP_ID = 'amzn1.ask.skill.ca296ffb-c026-4a98-a361-a9ec51f499a4';
-  alexa.dynamoDBTableName = 'expenses';
+  alexa.appId = 'amzn1.ask.skill.ca296ffb-c026-4a98-a361-a9ec51f499a4';
   alexa.registerHandlers(handlers);
   alexa.execute();
-}
+};
 
 function delegateSlotCollection() {
   console.log("in delegateSlotCollection");
@@ -59,17 +60,36 @@ function delegateSlotCollection() {
   } else {
     console.log("in completed");
     console.log("returning: " + JSON.stringify(this.event.request.intent));
+    if (this.event.request.intent.confirmationStatus === 'CONFIRMED') {
+      speechOutput = "Great! I've added the expense";
+      var docClient = new AWS.DynamoDB.DocumentClient();
+      var expenseDate = this.event.request.intent.slots.ExpenseDate.value;
+      var expenseDescription = this.event.request.intent.slots.ExpenseDescription.value;
+      var dollars = this.event.request.intent.slots.Dollars.value;
+      var cents = this.event.request.intent.slots.Cents.value;
+      var amount = parseInt(dollars) + parseInt(cents) / 100;
 
-    var expenseDate = this.event.request.intent.slots.ExpenseDate.value;
-    var expenseDescription = this.event.request.intent.slots.ExpenseDescription.value;
-    var dollars = this.event.request.intent.slots.Dollars.value;
-    var cents = this.event.request.intent.slots.Cents.value;
-    var amount = parseInt(dollars) + parseInt(cents) / 100;
+      var params = {
+        TableName: dynamoDBTableName,
+        Item: {
+          "userId": this.event.session.user.userId,
+          "timestamp": Date.now(),
+          "expenseDate": expenseDate,
+          "expenseDescription": expenseDescription,
+          "amount": amount
+        }
+      };
 
-    this.attributes['expenseDate'] = expenseDate;
-    this.attributes['expenseDescription'] = expenseDescription;
-    this.attributes['amount'] = amount;
-
+      docClient.put(params, function(err, data) {
+        if (err) {
+          console.error("Unable to add expense. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+          console.log("Added expense:", JSON.stringify(data, null, 2));
+        }
+      });
+    } else if (this.event.request.intent.confirmationStatus === 'DENIED'){
+      speechOutput = "Ok. I've cancelled the expense";
+    }
     return this.event.request.intent;
   }
 }
