@@ -1,7 +1,11 @@
 "use strict";
 
+var request = require("request");
+
 var AWS = require("aws-sdk");
 var Alexa = require('alexa-sdk');
+
+var GA_TRACKING_ID;
 
 var dynamoDBTableName = 'expenses';
 
@@ -16,6 +20,7 @@ var handlers = {
     this.emit(':responseReady');
   },
   'AddNewExpenseIntent': function() {
+    GA_TRACKING_ID = 'UA-109761792-1';
     var filledSlots = delegateSlotCollection.call(this);
 
     this.response.speak(speechOutput);
@@ -78,6 +83,7 @@ exports.handler = function(event, context, callback){
 };
 
 function delegateSlotCollection() {
+  var userId = this.event.session.user.userId;
   console.log("in delegateSlotCollection");
   console.log("current dialogState: " + this.event.request.dialogState);
 
@@ -103,7 +109,7 @@ function delegateSlotCollection() {
       var params = {
         TableName: dynamoDBTableName,
         Item: {
-          "userId": this.event.session.user.userId,
+          "userId": userId,
           "timestamp": Date.now(),
           "expenseDate": expenseDate,
           "expenseDescription": expenseDescription,
@@ -118,8 +124,22 @@ function delegateSlotCollection() {
           console.log("Added expense:", JSON.stringify(data, null, 2));
         }
       });
+
+      trackEvent(userId, 'Intent', 'AddNewExpenseIntent', 'Success', 1, function(err) {
+        if (err) {
+          console.log(next(err));
+        }
+        console.log('Tracking works!');
+      });
+
     } else if (this.event.request.intent.confirmationStatus === 'DENIED'){
       speechOutput = "Ok. I've cancelled the expense";
+      trackEvent(userId,'Intent', 'AddNewExpenseIntent', 'Fail', 1, function(err) {
+        if (err) {
+          console.log(next(err));
+        }
+        console.log('Tracking works!');
+      });
     }
     return this.event.request.intent;
   }
@@ -138,4 +158,30 @@ function readExpenseByDate(params, callback) {
       callback(data.Items);
     }
   });
+}
+
+function trackEvent(userId, category, action, label, value, callback) {
+  var data = {
+    v: '1',
+    tid: GA_TRACKING_ID,
+    cid: userId,
+    t: 'event',
+    ec: category,
+    ea: action,
+    el: label,
+    ev: value,
+  };
+
+  request.post(
+    'http://www.google-analytics.com/collect', {
+      form: data
+    },
+    function(err, response) {
+      if (err) { return callback(err); }
+      if (response.statusCode !== 200) {
+        return callback(new Error('Tracking failed'));
+      }
+      callback();
+    }
+  );
 }

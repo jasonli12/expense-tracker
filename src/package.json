@@ -1,0 +1,25 @@
+{
+  "name": "expensetracker",
+  "version": "1.0.0",
+  "description": "Lambda function for Alexa",
+  "main": "index.js",
+  "dependencies": {
+    "alexa-sdk": "^1.0.20",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonli12/expense-tracker.git"
+  },
+  "author": "Jason Li (jason.li0102@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonli12/expense-tracker/issues"
+  },
+  "homepage": "https://github.com/jasonli12/expense-tracker#readme"
+}
