@@ -808,7 +808,9 @@
               "I bought {ExpenseDescription}",
               "I paid for {ExpenseDescription}",
               "I paid {Dollars} dollars and {Cents} cents for {ExpenseDescription}",
-              "I bought a {ExpenseDescription} for {Dollars} dollars and {Cents} cents"
+              "I bought a {ExpenseDescription} for {Dollars} dollars and {Cents} cents",
+              "I am buying {ExpenseDescription}",
+              "I will be buying {ExpenseDescription}"
             ]
           },
           {
@@ -848,6 +850,50 @@
       {
         "name": "AMAZON.StopIntent",
         "samples": []
+      },
+      {
+        "name": "ReadExpensesByDateIntent",
+        "samples": [
+          "What did I buy on {ExpenseDate}",
+          "What did I purchase on {ExpenseDate}",
+          "What will I buy on {ExpenseDate}",
+          "What will I purchase on {ExpenseDate}",
+          "What did I pay for on {ExpenseDate}",
+          "What will I pay on {ExpenseDate}",
+          "What did I buy {ExpenseDate}",
+          "What did I purchase {ExpenseDate}",
+          "What did I pay for {ExpenseDate}",
+          "Give me a list of my expenses on {ExpenseDate}",
+          "Give me a list of my expenses {ExpenseDate}",
+          "List all my expenses on {ExpenseDate}",
+          "List all my expenses {ExpenseDate}",
+          "Read me what I spent on {ExpenseDate}",
+          "Read me what I spent {ExpenseDate}",
+          "Read me what I purchased on {ExpenseDate}",
+          "Read me what I purchased {ExpenseDate}",
+          "On {ExpenseDate} what did I buy",
+          "List what I spent on {ExpenseDate}",
+          "List what I bought {ExpenseDate}",
+          "List what I purchased {ExpenseDate}",
+          "List what I spent {ExpenseDate}",
+          "List what I bought on {ExpenseDate}",
+          "List what I purchased on {ExpenseDate}",
+          "Tell me what I bought {ExpenseDate}",
+          "Tell me what I bought on {ExpenseDate}",
+          "Tell me what I purchased {ExpenseDate}",
+          "Tell me what I purchased on {ExpenseDate}"
+        ],
+        "slots": [
+          {
+            "name": "ExpenseDate",
+            "type": "AMAZON.DATE",
+            "samples": [
+              "{ExpenseDate}",
+              "Tell me what I bought on {ExpenseDate}",
+              "Tell me what I bought {ExpenseDate}"
+            ]
+          }
+        ]
       }
     ],
     "invocationName": "expense tracker"
@@ -868,14 +914,6 @@
         {
           "type": "PlainText",
           "value": "What is the date of the expense"
-        },
-        {
-          "type": "PlainText",
-          "value": "When is the expense"
-        },
-        {
-          "type": "PlainText",
-          "value": "When are you buying it"
         }
       ]
     },
@@ -893,6 +931,10 @@
         {
           "type": "PlainText",
           "value": "What did you spend on"
+        },
+        {
+          "type": "PlainText",
+          "value": "What is the purchase"
         }
       ]
     },
@@ -910,10 +952,6 @@
         {
           "type": "PlainText",
           "value": "How much did you pay"
-        },
-        {
-          "type": "PlainText",
-          "value": "How many dollars did you pay"
         }
       ]
     },
@@ -927,6 +965,15 @@
         {
           "type": "PlainText",
           "value": " And how many cents"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-ReadExpensesByDateIntent.IntentSlot-ExpenseDate",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the expense date you are inquiring about?"
         }
       ]
     }
@@ -974,6 +1021,22 @@
             "confirmationRequired": false,
             "prompts": {
               "elicitation": "Elicit.Intent-AddNewExpenseIntent.IntentSlot-Cents"
+            }
+          }
+        ]
+      },
+      {
+        "name": "ReadExpensesByDateIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "ExpenseDate",
+            "type": "AMAZON.DATE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-ReadExpensesByDateIntent.IntentSlot-ExpenseDate"
             }
           }
         ]
